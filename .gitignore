@@ -1,5 +1,15 @@
 node_modules/
+dist/
 build/
 storybook-static/
+coverage/
 
-./package-lock.json
+# logs
+npm-debug.log*
+*.log
+
+# os / editor
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json

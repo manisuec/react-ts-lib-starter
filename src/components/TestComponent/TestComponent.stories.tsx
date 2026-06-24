@@ -1,35 +1,35 @@
-import React from "react";
-import TestComponent from "./TestComponent";
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
-export default {
-  title: "TestComponent"
+import TestComponent from './TestComponent';
+
+const meta = {
+  title: 'Components/TestComponent',
+  component: TestComponent,
+  tags: ['autodocs'],
+} satisfies Meta<typeof TestComponent>;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+const Content = () => (
+  <span>The only way to do great work is to love what you do.</span>
+);
+
+export const WithText: Story = {
+  args: {
+    heading: 'I am a test component',
+    content: <Content />,
+  },
 };
 
-const Content = () => {
-  return (
-    <span>
-      {'forked from '}
-      <a href="https://github.com/HarveyD/react-component-library" target="_blank" className="link">
-        {'https://github.com/HarveyD/react-component-library'}
-      </a>
-    </span>
-  )
-}
-
-export const WithText = () => (
-  <TestComponent
-    heading="I am a test component"
-    content={<Content />}
-  />
-);
-
-export const WithButtons = () => (
-  <TestComponent
-    heading="I have a button"
-    content={
+export const WithButtons: Story = {
+  args: {
+    heading: 'I have a button',
+    content: (
       <div>
-        <button onClick={() => alert("You clicked me!")}>Click me</button>
+        <button onClick={() => alert('You clicked me!')}>Click me</button>
       </div>
-    }
-  />
-);
+    ),
+  },
+};
